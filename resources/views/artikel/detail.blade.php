@@ -1,4 +1,4 @@
-@extends('artikel.master')
+@extends('layouts.adminLayout')
 
 <!-- memberikan judul di tab sesuai dengan judul artikel yang sedang dibaca -->
 @section('title')

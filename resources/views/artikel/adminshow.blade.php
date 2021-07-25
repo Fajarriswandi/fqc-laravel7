@@ -1,24 +1,15 @@
-@extends('artikel.master')
+@extends('layouts.adminLayout')
 
-@section('title', 'Halaman Khusus Admin')
+{{-- PAGE TITLE --}}
+@section('title', 'Admin - Articles')
 
-@section('header')
-    <h2>
-        <center>List Artikel</center>
-    </h2>
-@endsection
-
-
-
+    {{-- MAIN CONTENT --}}
 @section('main')
-    <div class="col-md-12">
-        
-    </div>
-
-    <div class="col-md-12 bg-white p-4">
+    <div class="col-md-10 col-sm-12">
+        <h2>Manage Articles</h2>
         <a href="/add"><button class="btn btn-primary mb-3">Tambah Artikel</button></a>
-        
-        {{-- Alert success --}}
+
+        {{-- ALERT SUCCESS --}}
         @if ($message = Session::get('success'))
             <div class="alert alert-success alert-block">
                 <button type="button" class="close" data-dismiss="alert">×</button>
@@ -26,7 +17,7 @@
             </div>
         @endif
 
-        {{-- Alert danger --}}
+        {{-- ALERT DANGER --}}
         @if ($message = Session::get('danger'))
             <div class="alert alert-danger alert-block">
                 <button type="button" class="close" data-dismiss="alert">×</button>
@@ -54,7 +45,8 @@
                         <td>{{ $article->slug }}</td>
                         <td>{{ $article->deskripsi }}</td>
                         <td>{{ $article->image }}</td>
-                        <td><a href="/news-info/{{ $article->slug }}" class="btn btn-primary" target="_blank">Show</a></td>
+                        <td><a href="/news-info/{{ $article->slug }}" class="btn btn-primary" target="_blank">Show</a>
+                        </td>
                         <td>
                             <a href="/edit/{{ $article->id }}"><button class="btn btn-success">Edit</button></a>
                             <a href="/delete/{{ $article->id }}"><button class="btn btn-danger">Hapus</button></a>
@@ -63,5 +55,6 @@
                 @endforeach
             </tbody>
         </table>
+
     </div>
 @endsection

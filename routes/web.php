@@ -9,7 +9,7 @@ Auth::routes();
 // });
 // Route::get('/tes', 'HomeController@home');
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'WebsiteController@index');
 
 Route::get('/add', 'ArtikelController@add');
 
@@ -20,6 +20,7 @@ Route::post('/edit_process', 'ArtikelController@edit_process'); // Edit proses p
 Route::get('/delete/{id}', 'ArtikelController@delete'); // Hapus artikel
 // Route::get('/detail/{id}', 'ArtikelController@detail'); // Detail artikel
 Route::get('/news-info/{slug}', 'ArtikelController@detail');
+
 // Administrator routes
 Route::get('/admin', 'ArtikelController@show_by_admin'); // Rout untuk admin
 

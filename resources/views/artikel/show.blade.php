@@ -1,5 +1,4 @@
-<!-- menggunakan kerangka dari halaman master.blade.php -->
-@extends('artikel.master')
+@extends('layouts.adminLayout')
 
 <!-- membuat komponen title sebagai judul halaman -->
 @section('title', 'News & Info')
