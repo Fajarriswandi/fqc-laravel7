@@ -12,44 +12,19 @@ class WebsiteController extends Controller
       $this->middleware('auth'); // Authentication middleware
     }
 
-    public function index()
+    public function index(Request $request)
     {
+  
+        if ($request->user()->hasRole('user')) {
+            return redirect('user');
+        }
+
+        if ($request->user()->hasRole('admin')){
+            return redirect('admin');
+        }
+
         return view('homepage');
+
     }
 
-    // View page post data page
-    public function create()
-    {
-        //
-    }
-
-    // Post data form action
-    public function store(Request $request)
-    {
-        //
-    }
-
-    // Show list data
-    public function show($id)
-    {
-        //
-    }
-
-    // View page edit data
-    public function edit($id)
-    {
-        //
-    }
-
-    // Edit data form action
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    // Delete data
-    public function destroy($id)
-    {
-        //
-    }
 }

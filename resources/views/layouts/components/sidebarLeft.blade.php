@@ -1,7 +1,7 @@
 <div class="col-md-2 col-sm-12 sidebarContainer">
     <div class="content">
         <div class="navbar">
-            
+
             {{-- List menu --}}
             <ul class="list-group w-100 listMenu">
                 <li>
@@ -10,9 +10,9 @@
                             class="bi bi-columns-gap"></i> Dashboard</a>
                 </li>
                 <li>
-                    <a href="{{ url('add') }}"
-                        class="{{ Request::is('add') ? 'list-group-item active' : 'list-group-item' }}"><i
-                            class="bi bi-file-earmark-richtext"></i> New Article</a>
+                    <a href="{{ url('artikel') }}"
+                        class="{{ Request::is('artikel') ? 'list-group-item active' : 'list-group-item' }}"><i
+                            class="bi bi-file-earmark-richtext"></i> Articles</a>
                 </li>
                 <li>
 

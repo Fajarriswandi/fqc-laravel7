@@ -10,8 +10,14 @@ use Illuminate\Support\Str;
 
 class ArtikelController extends Controller
 {
+
+    public function __construct()
+    {
+      $this->middleware('auth'); // Authentication middleware
+    }
+
     // Fungsi untuk mengecek Auth login
-    private function is_login()
+        private function is_login()
     {
         if(Auth::user()) {
             return true;
@@ -22,24 +28,28 @@ class ArtikelController extends Controller
     }
 
     // Fungsi menampilkan semua list artikel
-    public function show()
+    public function show(Request $request)
     {
-        $articles = DB::table('artikel')->orderby('id', 'desc')->get();
-        return view('artikel.show', ['articles'=>$articles]);
+        if ($request->user()->hasRole('admin')){
+            $articles = DB::table('artikel')->orderby('id', 'desc')->get();
+            return view('artikel.show', ['articles'=>$articles]);
+        }
+        return redirect('/');
+        
     }
 
     // Fungsi menampilkan halaman create artikel
-    public function add()
+    public function add(Request $request)
     {
         
-        if($this->is_login())
+        if($request->user()->hasRole('admin'))
         {
             return view('artikel.add');
         }
  
         else
         {
-           return redirect('/login');
+           return redirect('/');
         }
     }
 
@@ -72,20 +82,20 @@ class ArtikelController extends Controller
         return view('artikel.detail', ['article'=>$article]);
     }
 
-    // Fungsi halaman admin
-    public function show_by_admin()
+    public function index(Request $request)
     {
-        if($this->is_login())
-        {
+  
+        if ($request->user()->hasRole('user')) {
+            return redirect('user');
+        }
+
+        if ($request->user()->hasRole('admin')){
             $articles = DB::table('artikel')->orderby('id', 'desc')->get();
-            return view('artikel.adminshow', ['articles'=>$articles]);
+            return view('artikel.index', ['articles'=>$articles]);
         }
  
-        else
-        {
-           return redirect('/login');
-        }
     }
+
 
     // Fungsi edit artikel
     public function edit($id)

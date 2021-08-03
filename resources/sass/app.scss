@@ -5,3 +5,8 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~bootstrap-icons/font/bootstrap-icons';
 @import 'adminStyle'; // Style dashboard administrator
+
+.card{
+    border-radius: 10px;
+    border-color: #eeeeee;
+}

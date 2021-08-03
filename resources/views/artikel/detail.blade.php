@@ -8,6 +8,7 @@
 <!-- menampilkan gambar, judul, dan isi artikel -->
 @section('main')
     <div class="col-md-7 col-sm-12 mb-5 bg-white p-0">
+        <input name="action" onclick="history.back()" type="submit" value="Back"/>
         <img src={{url('/images/', $article->image) }} class="card-img-top img-fluid" alt="gambar">
         <div class="p-4">
             <h2>Title-{{ $article->judul }}</h2>

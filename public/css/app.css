@@ -16546,3 +16546,8 @@ body.adminDashboard {
   color: #2A2A2A;
 }
 
+.card {
+  border-radius: 10px;
+  border-color: #eeeeee;
+}
+

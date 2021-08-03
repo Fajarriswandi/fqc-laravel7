@@ -45,7 +45,7 @@
                         <td>{{ $article->slug }}</td>
                         <td>{{ $article->deskripsi }}</td>
                         <td>{{ $article->image }}</td>
-                        <td><a href="/news-info/{{ $article->slug }}" class="btn btn-primary" target="_blank">Show</a>
+                        <td><a href="/artikel/{{ $article->slug }}" class="btn btn-primary">Show</a>
                         </td>
                         <td>
                             <a href="/edit/{{ $article->id }}"><button class="btn btn-success">Edit</button></a>
