@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
@@ -8,10 +8,17 @@
     <title>@yield('title')</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
-    
+
 </head>
 
 <body>
-@yield('content')
-</body>
-</html>
+
+@include('layouts.components.frontend.header')
+
+<!--Main Layout-->
+<div class="mainLayout">
+    @include('layouts.components.frontend.sidebarLeftNav')
+    @yield('content')
+</div>
+
+@include('layouts.components.frontend.footer')

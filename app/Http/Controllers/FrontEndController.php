@@ -11,6 +11,10 @@ class FrontEndController extends Controller
         return view('homepage');
     }
 
+    public function bootstrap(){
+        return view('bootstrap');
+    }
+
     public function create()
     {
         //

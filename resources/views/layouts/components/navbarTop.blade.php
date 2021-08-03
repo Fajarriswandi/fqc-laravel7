@@ -6,12 +6,12 @@
                 <div>
                     <div class="avatar">
                         @php
-                            $username = 'Abdul Ghany';
+                            $username = Auth::user()->name;
                             echo substr($username, 0, 1);
                         @endphp
                     </div>
                 </div>
-                <div class="username">Abdul Ghany</div>
+                <div class="username">{{ Auth::user()->name }}</div>
             </div>
         </nav>
     </div>

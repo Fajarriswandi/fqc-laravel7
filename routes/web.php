@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'FrontEndController@index');
-// Route::get('/admin', 'WebsiteController@index');
+Route::get('/bootstrap', 'FrontEndController@bootstrap');
 
 //  ARTIKEL ROUTES
 Route::get('/add', 'ArtikelController@add');
@@ -22,3 +22,4 @@ Route::get('/artikel', 'ArtikelController@index'); // Rout untuk manage artikel
 
 Route::get('/admin', 'AdminController@index');
 Route::get('/user', 'UserController@index');
+

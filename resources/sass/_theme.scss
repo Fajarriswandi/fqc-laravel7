@@ -1,0 +1,1026 @@
+// Colors
+$primary: #ddae52;
+$secondary: #535353;
+$text: $secondary;
+$border-light: #ececec;
+$light: #f2f2f2;
+@mixin gradientLightTop {
+    background: -moz-linear-gradient(top, rgba(242, 242, 242, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    background: -webkit-linear-gradient(top, rgba(242, 242, 242, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to bottom, rgba(242, 242, 242, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#00ffffff',GradientType=0 );
+}
+@mixin gradientWhite {
+    background: -moz-linear-gradient(
+        top,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 69%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+        top,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 69%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 1) 69%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
+}
+@mixin gradientLightToptoBottom {
+    background: -moz-linear-gradient(top, rgba(242, 242, 242, 1) 0%, rgba(242, 242, 242, 0) 100%);
+    background: -webkit-linear-gradient(top, rgba(242, 242, 242, 1) 0%, rgba(242, 242, 242, 0) 100%);
+    background: linear-gradient(to bottom, rgba(242, 242, 242, 1) 0%, rgba(242, 242, 242, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#00f2f2f2',GradientType=0 );
+}
+@mixin gradientLightLefttoRight {
+    background: -moz-linear-gradient(left, rgba(242, 242, 242, 1) 0%, rgba(242, 242, 242, 0) 100%);
+    background: -webkit-linear-gradient(left, rgba(242, 242, 242, 1) 0%, rgba(242, 242, 242, 0) 100%);
+    background: linear-gradient(to right, rgba(242, 242, 242, 1) 0%, rgba(242, 242, 242, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#00f2f2f2',GradientType=1 );
+}
+// Colors
+
+// Screen
+$desktop: 1100px;
+$tablet: 900px;
+$mobile: 600px;
+// Screen
+
+$theme-colors: (
+  "primary": red,
+  "danger": #ff4136
+);
+
+body,
+html {
+    font-family: $paragraf;
+    color: $secondary;
+    overflow-x: hidden;
+    background: white;
+}
+
+// Typography
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $title;
+    color: $secondary;
+}
+// Typography
+
+// Button
+.btn {
+    &:hover {
+        @extend .shadow-sm;
+    }
+
+    &.btn-rounded {
+        border-radius: 100px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    &.btn-primary {
+        &:hover {
+            background: #ca9f4a;
+            border-color: #ddae52;
+        }
+        &:active {
+            background: #ca9f4a !important;
+            border-color: #ddae52 !important;
+        }
+        &:focus-within {
+            background: #ca9f4a !important;
+            border-color: #ddae52;
+        }
+    }
+}
+
+// Main Navigation
+.mainNavigation {
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    height: 80px;
+    // overflow: hidden;
+    transition: 0.3s ease;
+    z-index: 140;
+    .containerMenu {
+        width: 80%;
+        margin: 0 auto;
+    }
+    @media (max-width: $tablet) {
+        height: 60px;
+        padding: 0 !important;
+        .containerMenu {
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
+    .logo {
+        display: table;
+        width: 150px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media (max-width: $tablet) {
+            width: auto;
+            height: 60px;
+            justify-content: flex-start;
+            padding-left: 30px;
+            img {
+                height: 35px;
+                width: auto;
+            }
+        }
+    }
+
+    &.mainNavigationOnScroll {
+        // background: white;
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid $light;
+    }
+
+    .mobileMenuRightContainer {
+        display: none;
+        @media (max-width: 989px) {
+            display: block;
+        }
+    }
+
+    .mobileMenuRight {
+        display: flex;
+        padding-right: 30px;
+        .btnItem {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            outline: 0;
+            box-shadow: 0;
+            border: none;
+            .bi {
+                font-size: 24px;
+            }
+        }
+    }
+}
+// Main Navigation
+
+// Menu On Click Toggle
+.menuOnclick {
+    // background: white;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    position: fixed;
+    display: table;
+    width: 100%;
+    height: 100vh;
+    z-index: 150;
+    display: none;
+    overflow-x: hidden;
+    &.open {
+        display: block;
+        padding-left: 80px;
+        @extend .scale-in-hor-left;
+        @media (max-width: $tablet) {
+            padding-left: 0;
+        }
+    }
+    .btnExpandMenu {
+        position: absolute;
+        top: 0;
+        right: 0 !important;
+        z-index: 1500;
+        .bi {
+            font-size: 35px;
+        }
+        &.menu {
+            background: transparent;
+            span {
+                font-size: 14px;
+            }
+        }
+    }
+    .contentMenu {
+        padding: 5em;
+        @media (max-width: $tablet) {
+            padding: 80px 30px 30px 30px !important;
+        }
+        h2 {
+            position: relative;
+            display: table;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        .item {
+            &:nth-child(1) {
+                @extend .fade-in-left;
+                animation-delay: 0.18s;
+            }
+            &:nth-child(2) {
+                @extend .fade-in-left;
+                animation-delay: 0.28s;
+            }
+            &:nth-child(3) {
+                @extend .fade-in-left;
+                animation-delay: 0.38s;
+            }
+            img {
+                border-top-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+            }
+            ul {
+                list-style: none;
+                margin: 0 0 20px 0;
+                padding: 0;
+                li {
+                    a {
+                        display: block;
+                        color: $secondary;
+                        transition: 0.3s ease;
+                        border-top-left-radius: 15px;
+                        border-bottom-right-radius: 15px;
+                        strong {
+                            font-size: 23px;
+                        }
+                        &:hover {
+                            text-decoration: none;
+                            background: white;
+                            padding: 15px;
+                            @extend .shadow-sm;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// Menu On Click Toggle
+
+// Layout
+.mainLayout {
+    display: flex;
+    flex-direction: row;
+    .sidebarLeft {
+        width: 80px;
+        height: 100vh;
+        position: relative;
+        @media (max-width: $tablet) {
+            display: none;
+        }
+        .content {
+            background: #F9F9F9;
+            position: fixed;
+            width: 80px;
+            height: 100%;
+            @extend .shadow-sm;
+            z-index: 150;
+            .bi {
+                font-size: 25px;
+                color: #757575;
+            }
+        }
+    }
+    .mainContent {
+        width: 100%;
+        padding-left: 5px;
+        @media (max-width: $tablet) {
+            padding-left: 0;
+        }
+    }
+}
+// Layout
+
+// Button Expand Menu
+.btnExpandMenu {
+    background: #F9F9F9;
+    border: none;
+    outline: none;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease;
+    position: relative;
+    &:hover {
+        background: $light;
+    }
+    &.menu {
+        span {
+            color: $secondary;
+            position: absolute;
+            bottom: 8px;
+            right: auto;
+            padding: 1px 6px;
+            border-radius: 5px;
+            font-size: 10px;
+        }
+    }
+}
+// Button Expand Menu
+
+// List Sosmed
+.listSosmed {
+    list-style: none;
+    margin: 8em 0 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    li {
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 80px;
+            transition: 0.3s ease;
+            &:hover {
+                background: $light;
+            }
+            &.new {
+                position: relative;
+                span {
+                    background: red;
+                    color: white;
+                    position: absolute;
+                    top: 8px;
+                    right: auto;
+                    padding: 1px 6px;
+                    border-radius: 5px;
+                    font-size: 10px;
+                    @extend .blink-2;
+                }
+            }
+        }
+    }
+}
+// List Sosmed
+
+// Header home
+.headerHome {
+    width: 100%;
+    height: 95vh;
+    @include gradientLightTop();
+    @media (max-width: $tablet) {
+        height: auto;
+        padding-top: 0px;
+    }
+    .content {
+        background: url("/themeImages/bgHeader.svg") no-repeat center center;
+        background-size: cover;
+        display: flex;
+        padding-top: 100px;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: right;
+        .row {
+            width: 100%;
+        }
+    }
+    .headerContent {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 60px;
+        text-align: left;
+    }
+}
+// Header home
+
+// Dropdown Notification
+.dropdownNotification {
+    .dropdown-toggle {
+        &::before {
+            display: none;
+        }
+        &::after {
+            display: none;
+        }
+    }
+    .dropdown-menu {
+        border-color: $border-light;
+        @extend .shadow-sm;
+        border-radius: 15px;
+        .dropdown-item {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+}
+// Dropdown Notification
+
+// Popover Costume
+
+// Arrow pop over color
+.bs-popover-auto[x-placement^="right"] > .arrow::before,
+.bs-popover-right > .arrow::before {
+    border-right-color: $border-light;
+}
+
+.popover {
+    border-color: $border-light;
+    border-radius: 10px;
+    @extend .shadow-sm;
+
+    .popover-header {
+        background: $secondary;
+        color: white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    .popover-body {
+        color: $secondary;
+    }
+}
+// Popover Costume
+
+// Image slider header
+#imageSliderHeader {
+    @media (max-width: $tablet) {
+        padding: 0 30px;
+    }
+    .carousel-inner {
+        .carousel-item {
+            transition: transform 1s ease, opacity 0.2s ease-out;
+            img {
+                border-top-left-radius: 15px;
+                border-bottom-left-radius: 15px;
+                width: 100%;
+                height: 420px;
+                object-fit: cover;
+                @media (max-width: $tablet) {
+                    border-radius: 15px;
+                }
+                @media (max-width: $tablet) {
+                    height: 300px;
+                }
+            }
+        }
+    }
+}
+// Image slider header
+
+// Content Group
+.contentGroup {
+    h2 {
+        font-size: 3em;
+        @media (max-width: $tablet) {
+            font-size: 2em;
+        }
+    }
+    &.right {
+        text-align: right;
+    }
+    &.sm-center {
+        @media (max-width: $tablet) {
+            text-align: center;
+        }
+    }
+}
+// Content Group
+
+// Lessons
+.lessons {
+    height: auto;
+    padding: 8em 30px 0 30px;
+    // background: blue;
+    @media (max-width: $tablet) {
+        height: auto;
+        padding: 8em 30px 8em 30px;
+    }
+    .title {
+        display: table;
+        margin: 0 auto 30px auto;
+    }
+    .item {
+        margin-bottom: 30px;
+        &.secondary {
+            .card {
+                background: $secondary;
+                color: white;
+                h3 {
+                    color: white;
+                }
+            }
+        }
+        a {
+            color: $secondary;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+// Lessons
+
+// Card
+.card {
+    border-color: $border-light;
+    border-radius: 15px;
+    &.radiusStyled {
+        border-radius: 30px 0 30px 0;
+        padding: 40px 30px;
+        display: table;
+        text-align: center;
+        transition: 0.3s ease;
+        img {
+            width: 120px;
+            height: auto;
+            margin: 0 auto 15px auto;
+        }
+        &:hover {
+            @extend .shadow-lg;
+        }
+    }
+}
+// Card
+
+// Link Arrow
+.linkArrow {
+    display: table;
+    position: relative;
+    width: auto;
+    height: 30px;
+    padding-left: 30px;
+    padding-top: 3px;
+    &::after {
+        display: table;
+        content: "\00203A";
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        padding-bottom: 2px;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+    }
+    &.center {
+        margin: 0 auto;
+    }
+    &.sm-center {
+        @media (max-width: $tablet) {
+            margin: 0 auto;
+        }
+    }
+    &:hover {
+        color: $secondary;
+        text-decoration: none;
+    }
+}
+// Link Arrow
+
+// Why we exist
+.whyWeExist {
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background: orange;
+    @media (max-width: $tablet) {
+        height: auto;
+        padding: 0 30px 8em 30px;
+    }
+    .images {
+        img {
+            width: 100%;
+            height: 435px;
+            object-fit: cover;
+            @media (max-width: 1200px) {
+                height: auto;
+            }
+            @media (max-width: $tablet) {
+                height: auto;
+            }
+        }
+        @media (max-width: $tablet) {
+            &::before {
+                content: "";
+                display: table;
+                width: 100%;
+                height: 80%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                z-index: 10;
+                @include gradientWhite();
+            }
+        }
+    }
+    .content {
+        @media (max-width: $tablet) {
+            margin-top: -6em;
+            z-index: 11;
+        }
+    }
+}
+// Why we exist
+
+// Get to know us
+.getToKnowUs {
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: $tablet) {
+        height: 95vh;
+        padding: 0 30px 30px 30px;
+    }
+    @media (max-width: $mobile) {
+        height: auto;
+    }
+    .card {
+        text-align: left;
+        .images {
+            img {
+                width: 100%;
+                height: 500px;
+                object-fit: cover;
+                border-top-left-radius: 25px;
+                border-bottom-right-radius: 25px;
+                @media (max-width: $tablet) {
+                    height: 300px;
+                    -webkit-animation: vibrate-1 2.5s linear infinite both;
+                    animation: vibrate-1 2.5s linear infinite both;
+                }
+            }
+            @media (max-width: $tablet) {
+                &::before {
+                    content: "";
+                    display: table;
+                    width: 100%;
+                    height: 80%;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 10;
+                    @include gradientWhite();
+                }
+            }
+        }
+        .content {
+            @media (max-width: 767px) {
+                margin-top: -5em;
+                z-index: 11;
+            }
+        }
+    }
+}
+// Get to know us
+
+// Benefit
+.benefit {
+    height: 95vh;
+    padding: 8em 30px 0 30px;
+    // background: blue;
+    @media (max-width: $tablet) {
+        height: auto;
+        padding: 8em 30px 8em 30px;
+    }
+    .title {
+        display: table;
+        margin: 0 auto 30px auto;
+    }
+    .item {
+        margin-bottom: 30px;
+        &.gradientLight {
+            .card {
+                @include gradientLightToptoBottom();
+            }
+        }
+        a {
+            color: $secondary;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+// Benefit
+
+// Different
+.different {
+    @include gradientLightLefttoRight();
+    height: 93vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: $tablet) {
+        height: auto;
+        padding: 3em 30px;
+    }
+    .content {
+        padding: 30px;
+    }
+    .images {
+        padding: 30px;
+        img {
+            @extend .vibrate-slow;
+        }
+    }
+}
+// Different
+
+// Testimonials
+.testimonials {
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: $tablet) {
+        height: auto;
+        margin: 60px 30px;
+    }
+
+    .title {
+        display: table;
+        margin: 0 auto 60px auto;
+    }
+    .containerCostume {
+        width: 80%;
+        // border: 1px solid $light;
+        @media (max-width: $tablet) {
+            width: 100%;
+        }
+    }
+
+    .navTestimonials {
+        .nav-link {
+            border-radius: 20px 0 20px 0;
+            margin-bottom: 15px;
+            transition: 0.3s ease;
+            &:hover {
+                background: $light;
+                .itemTitle {
+                    .item {
+                        &.content {
+                            span {
+                                color: $secondary;
+                            }
+                        }
+                    }
+                }
+            }
+            &.active {
+                background: $secondary;
+                color: white;
+                h4 {
+                    color: white;
+                }
+                &:hover {
+                    background: $secondary;
+                    .itemTitle {
+                        .item {
+                            &.content {
+                                span {
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .itemTitle {
+            display: flex;
+            .item {
+                img {
+                    width: 60px;
+                    height: 60px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                }
+                &.content {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    padding-left: 10px;
+                    h4 {
+                        font-size: 14px;
+                        font-weight: bold;
+                        margin: 0 0 0px 0;
+                    }
+                    span {
+                        font-size: 14px;
+                        margin-right: auto;
+                    }
+                }
+            }
+        }
+    }
+
+    .navTabContentTestimonials {
+        h4 {
+            font-size: 18px;
+            color: $primary;
+        }
+    }
+}
+// Testimonials
+
+// Footer
+footer {
+    padding: 8em 0;
+    background: url("/themeImages/footer.svg") no-repeat bottom left;
+    background-size: 50%;
+    @media (max-width: $tablet) {
+        padding: 3em 30px;
+        .logoFooter {
+            display: table;
+            width: 100px;
+            height: auto;
+            margin: 0 auto;
+        }
+    }
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        @media (max-width: $tablet) {
+            text-align: center;
+        }
+        li {
+            a {
+                display: table;
+                position: relative;
+                padding: 8px 25px 8px 0;
+                color: $secondary;
+                @media (max-width: $tablet) {
+                    text-align: center;
+                    margin: 0 auto;
+                }
+                &:hover {
+                    color: $primary;
+                    text-decoration: none;
+                }
+                &::after {
+                    content: " ";
+                    background: url("/themeImages/iconLink.svg") no-repeat center center;
+                    background-size: 100%;
+                    width: 15px;
+                    height: 15px;
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+    .copyRight {
+        font-size: 14px;
+        text-align: center;
+        padding: 30px 0;
+    }
+}
+// Footer
+
+// Nav Sosmed Mobile
+.navSosmedMobileContainer{
+    display: none;
+    @media(max-width: $tablet){
+        display: block;
+        position: fixed;
+        margin-left: 0px;
+        bottom: -60px;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        text-align: center;
+        z-index: 100;
+        transition: bottom 0.3s;
+    }
+}
+.navSosmedMobile {
+    background: white;
+    @extend .shadow-lg;
+    border-top: 1px solid $border-light;
+    margin-left: 0px;
+    
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        color: $secondary;
+        .bi {
+            width: 20px;
+            height: 20px;
+            object-fit: cover;
+        }
+        &.new {
+            position: relative;
+            img {
+                width: 20px;
+                height: 20px;
+                object-fit: cover;
+            }
+            span {
+                background: red;
+                color: white;
+                position: absolute;
+                top: 6px;
+                right: auto;
+                padding: 1px 5px;
+                border-radius: 5px;
+                font-size: 8px;
+                @extend .blink-2;
+            }
+        }
+    }
+}
+// Nav Sosmed Mobile
+
+
+// Coming Soon
+.comingSoon{
+    background:  url('/themeImages/patterFullPage.svg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .logoComingSoon{
+        position: absolute;
+        position: absolute;
+        top: 30px;
+        left: 130px;
+    }
+    .goBack{
+        position: absolute;
+        top: 28px;
+        left: 0;
+        padding: 20px;
+        border: none;
+        background: transparent;
+        color: $text;
+        display: none;
+        @media(max-width:$tablet){
+            display: block;
+        }
+    }
+    > .content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10em;
+        height: 100vh;
+        @media(max-width:$tablet){
+            padding: 100px 30px;
+            height: auto;
+        }
+        @media(max-width:$mobile){
+            flex-direction: column-reverse;
+            text-align: center;
+            padding: 160px 30px;
+        }
+        .textContent{
+            width: 60%;
+            // background: orange;
+            padding-right: 30px;
+            @media(max-width:$mobile){
+                padding-right: 0;
+                width: 100%;
+            }
+            h1{
+                text-transform: uppercase;
+                font-weight: 600;
+                @media(max-width:$mobile){
+                    font-size: 25px;
+                }
+            }
+            h4{
+                @media(max-width:$mobile){
+                    font-size: 18px;
+                }
+            }
+        }
+        .image{
+            width: 40%;
+            @media(max-width:$tablet){
+                margin-bottom: 30px;
+                width: 100%;
+            }
+        }
+    }
+}
+// Coming Soon
