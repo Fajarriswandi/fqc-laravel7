@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class FrontEndController extends Controller
 {
@@ -13,6 +15,16 @@ class FrontEndController extends Controller
 
     public function bootstrap(){
         return view('bootstrap');
+    }
+
+    public function blog(){
+        $articles = DB::table('artikel')->orderby('id', 'desc')->get();
+        return view('blog.blog', compact('articles'));
+    }
+
+    public function blogdetail($slug){
+        $article = DB::table('artikel')->where('slug', $slug)->first();
+        return view('blog.blogdetail', ['article'=>$article]);
     }
 
     public function create()

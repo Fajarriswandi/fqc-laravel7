@@ -1,6 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@300;
 
 400;600;800&display=swap);@import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);@charset "UTF-8";
+.card-img-top {
+  border-top-left-radius: 15px !important;
+  border-top-right-radius: 15px !important;
+}
 
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
@@ -8,6 +12,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
@@ -2127,7 +2132,7 @@ pre code {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #e0e0e0;
-  border-radius: 0.45rem;
+  border-radius: 0.55rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -2242,7 +2247,7 @@ select.form-control:focus::-ms-value {
   padding: 0.25rem 0.8rem;
   font-size: 0.875rem;
   line-height: 1.5;
-  border-radius: 0.35rem;
+  border-radius: 0.45rem;
 }
 
 .form-control-lg {
@@ -3880,7 +3885,7 @@ input[type=button].btn-block {
   white-space: nowrap;
   background-color: #e9ecef;
   border: 1px solid #e0e0e0;
-  border-radius: 0.45rem;
+  border-radius: 0.55rem;
 }
 
 .input-group-text input[type=radio],
@@ -3919,7 +3924,7 @@ input[type=button].btn-block {
   padding: 0.25rem 0.8rem;
   font-size: 0.875rem;
   line-height: 1.5;
-  border-radius: 0.35rem;
+  border-radius: 0.45rem;
 }
 
 .input-group-lg > .custom-select,
@@ -4222,7 +4227,7 @@ input[type=button].btn-block {
   color: #495057;
   background-color: #fff;
   border: 1px solid #e0e0e0;
-  border-radius: 0.45rem;
+  border-radius: 0.55rem;
 }
 
 .custom-file-label::after {
@@ -4239,7 +4244,7 @@ input[type=button].btn-block {
   content: "Browse";
   background-color: #e9ecef;
   border-left: inherit;
-  border-radius: 0 0.45rem 0.45rem 0;
+  border-radius: 0 0.55rem 0.55rem 0;
 }
 
 .custom-range {
@@ -8352,6 +8357,7 @@ button.bg-dark:focus {
 }
 
 .shadow-lg,
+#blog #listBlog .card:hover,
 .navSosmedMobile,
 .card.radiusStyled:hover {
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
@@ -18527,5 +18533,131 @@ footer .copyRight {
     margin-bottom: 30px;
     width: 100%;
   }
+}
+
+#blog header {
+  background: linear-gradient(to bottom, #f2f2f2 0%, rgba(242, 242, 242, 0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#f2f2f2", endColorstr="#00f2f2f2",GradientType=0 );
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#blog header > div {
+  z-index: 10;
+  text-align: center;
+}
+
+#blog header::before {
+  background: url("/themeImages/bgHeaderSmall.svg") no-repeat center center;
+  background-size: 100%;
+  display: table;
+  content: " ";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#blog header h1 {
+  font-size: 2rem;
+}
+
+#blog header .breadcrumb {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  background: transparent;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#blog header .breadcrumb li {
+  position: relative;
+  margin-right: 15px;
+}
+
+#blog header .breadcrumb li::after {
+  content: " / ";
+  display: table;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  right: -11px;
+  color: #535353;
+  transform: translateY(-50%);
+}
+
+#blog header .breadcrumb li:last-child::after {
+  display: none;
+}
+
+#blog header .breadcrumb li a {
+  display: table;
+  padding: 3px 5px;
+  color: #535353;
+}
+
+#blog header .breadcrumb li a:hover {
+  color: #ddae52;
+}
+
+#blog #listBlog {
+  padding: 0 5rem 0 5rem;
+}
+
+#blog #listBlog a {
+  color: #535353;
+}
+
+#blog #listBlog a:hover {
+  text-decoration: none;
+}
+
+#blog #listBlog .card {
+  overflow: hidden !important;
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  top: 0px;
+}
+
+#blog #listBlog .card .image {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+#blog #listBlog .card .image .card-img-top {
+  height: 200px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#blog #listBlog .card .card-title {
+  min-height: 73px;
+}
+
+#blog #listBlog .card:hover {
+  text-decoration: none;
+  cursor: pointer;
+  top: -20px;
+}
+
+#blog #listBlog .card:hover .image {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+#blog #listBlog .card:hover .image .card-img-top {
+  transform: scale(1.1);
 }
 

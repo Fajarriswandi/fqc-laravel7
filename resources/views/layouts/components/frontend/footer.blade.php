@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-12 order-12 order-md-0 order-lg-0 mb-3">
-                <img src="themeImages/logoFooter.svg" alt="Fajr Quran Center" class="img-fluid logoFooter" />
+                <img src="{{URL::to('/')}}/themeImages/logoFooter.svg" alt="Fajr Quran Center" class="img-fluid logoFooter" />
             </div>
             <div class="col-md-3 col-sm-12 mb-3">
                 <ul>
@@ -50,12 +50,12 @@
                 onclick="window.open('https://wa.me/6287755088340?text=السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ')"><i
                     class="bi bi-whatsapp"></i></a></div>
         <div class="col p-0"><a target="_blank" href="http://fidia.fajrqurancentre.com/" class="new"><img
-                    src="themeImages/fidia.svg" alt="Fidia Digital Agency"> <span>New</a></a></div>
+                    src="{{URL::to('/')}}/themeImages/fidia.svg" alt="Fidia Digital Agency"> <span>New</a></a></div>
     </div>
 </div>
 <!--Navigation Sosmed Mobile-->
 
-<script src="js/jquery-3.5.1.slim.min.js"></script>
+<script src="{{URL::to('/')}}/js/jquery-3.5.1.slim.min.js"></script>
 {{-- <script src="js/bootstrap.bundle.js"></script> --}}
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>

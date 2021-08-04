@@ -3,7 +3,7 @@
     <div class="containerMenu">
         <div class="row">
             <div class="col-6">
-                <a href="#" class="logo"><img src="themeImages/logo.svg" alt="Fajr Quran Centre"></a>
+                <a href="#" class="logo"><img src="{{URL::to('/')}}/themeImages/logo.svg" alt="Fajr Quran Centre"></a>
             </div>
             <div class="col-md-6 col-sm-12 d-md-none d-lg-block d-none">
                 <div class="row justify-content-end mt-4">
@@ -71,7 +71,7 @@
     <div class="contentMenu row">
         <div class="col-md-4 col-sm-12 item mb-5">
             <h2><span>About Us</span></h2>
-            <img src="themeImages/AboutUsMenu.png" alt="About Fajr Quran Centre - FQC" class="img-fluid mb-3">
+            <img src="{{URL::to('/')}}/themeImages/AboutUsMenu.png" alt="About Fajr Quran Centre - FQC" class="img-fluid mb-3">
             <p>Take lessons to help teachers with an income, given to them through your fee. To help yourself, by
                 gaining beneficial knowledge. To help others with your knowledge. So much you can do while being at
                 home.</p>

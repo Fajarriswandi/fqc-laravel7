@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Session; // Dibutuhkan dalam mengedit data
 use Auth; // Untuk authentication / membatasi akses halaman admin
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class ArtikelController extends Controller
 {
@@ -31,8 +32,10 @@ class ArtikelController extends Controller
     public function show(Request $request)
     {
         if ($request->user()->hasRole('admin')){
+            $waktu = Carbon::now();
             $articles = DB::table('artikel')->orderby('id', 'desc')->get();
-            return view('artikel.show', ['articles'=>$articles]);
+            return view('artikel.show', compact('articles', 'data'));
+            // return view('artikel.show', ['articles'=>$articles]);
         }
         return redirect('/');
         
@@ -56,11 +59,13 @@ class ArtikelController extends Controller
     // Fungsi simpan / post artikel dalam form action
     public function add_process(Request $article)
     {
+        $waktu = Carbon::now();
         DB::table('artikel')->insert([
             'slug' => Str::slug($article->judul, '-'),
             'judul'=>$article->judul,
             'deskripsi'=>$article->deskripsi,
             'image' => time().'.'.$article->image->extension(), // Untuk memasukan nama dan extentionnya ke dalam database (Ex: gambar.jpg;)
+            'created_at' => $waktu
         ]);
 
         // Validasi format gambar
@@ -72,8 +77,9 @@ class ArtikelController extends Controller
         $imageName = time().'.'.$article->image->extension(); // Memformat nama gambar dengan extention, tidak di masukan di database, hanya untuk rename nama gambar untuk di upload
         $article->image->move(public_path('images'), $imageName); // Menyimpan gambar yang di upload kedalam folder Image yang ada di Public
         
-        Session::flash('success', 'Data berhasil tambahkan!');
-        return redirect()->action('ArtikelController@show_by_admin');
+        // Session::flash('success', 'Data berhasil tambahkan!');
+        toastr()->success('Data berhasil di tambahkan', 'Success');
+        return redirect()->action('ArtikelController@index');
     }
 
     // Fungsi show detail artikel
@@ -121,7 +127,7 @@ class ArtikelController extends Controller
             $slug = $article->slug;
             $judul = $article->judul;
             $deskripsi = $article->deskripsi;
-            // $image = $article->image;
+            $waktu = Carbon::now();
 
             DB::table('artikel')->where('id', $id)
                                 ->update([
@@ -129,6 +135,9 @@ class ArtikelController extends Controller
                                     'judul' => $judul, 
                                     'deskripsi' => $deskripsi,
                                     'image' => time().'.'.$article->image->extension(),
+                                    'created_at' => $waktu,
+                                    'updated_at' => $waktu
+                                    
                                 ]);
 
             $imageName = time().'.'.$article->image->extension();
@@ -139,18 +148,24 @@ class ArtikelController extends Controller
         $slug = $article->slug;
         $judul = $article->judul;
         $deskripsi = $article->deskripsi;
+        $createdat = $article->created_at;
+        $waktu = Carbon::now();
+
         DB::table('artikel')->where('id', $id)
-                                ->update([
-                                    'slug' => Str::slug($article->judul, '-'),
-                                    'judul' => $judul, 
-                                    'deskripsi' => $deskripsi,
-                                ]);
+                            ->update([
+                                'slug' => Str::slug($article->judul, '-'),
+                                'judul' => $judul, 
+                                'deskripsi' => $deskripsi,
+                                'updated_at' => $waktu
+                            ]);
 
 
 
 
-        Session::flash('success', 'Data berhasil di update!');
-        return redirect()->action('ArtikelController@show_by_admin');
+        // Session::flash('success', 'Data berhasil di update!');
+        // toastr()->info('Data berhasil di update!');
+        toastr()->info($judul, 'Update done');
+        return redirect()->action('ArtikelController@index');
     }
 
     // Fungsi untuk menghapus data
@@ -163,8 +178,9 @@ class ArtikelController extends Controller
                                 ->delete();
  
             //membuat pesan yang akan ditampilkan ketika artikel berhasil dihapus
-            Session::flash('danger', 'Artikel berhasil dihapus');
-            return redirect()->action('ArtikelController@show_by_admin');
+            // Session::flash('danger', 'Artikel berhasil dihapus');
+            toastr()->error('Data secara permanen di hapus dari database', 'Dihapus!');
+            return redirect()->action('ArtikelController@index');
         }
  
         else

@@ -33,6 +33,8 @@
                     <th>Slug</th>
                     <th>Deskripsi</th>
                     <th>Image</th>
+                    <th>Created at</th>
+                    <th>Updated at</th>
                     <th>View</th>
                     <th>Aksi</th>
                 </tr>
@@ -45,11 +47,13 @@
                         <td>{{ $article->slug }}</td>
                         <td>{{ $article->deskripsi }}</td>
                         <td>{{ $article->image }}</td>
+                        <td>{{ $article->created_at }}</td>
+                        <td>{{ $article->updated_at }}</td>
                         <td><a href="/artikel/{{ $article->slug }}" class="btn btn-primary">Show</a>
                         </td>
                         <td>
                             <a href="/edit/{{ $article->id }}"><button class="btn btn-success">Edit</button></a>
-                            <a href="/delete/{{ $article->id }}"><button class="btn btn-danger">Hapus</button></a>
+                            <a onclick="return confirm('Are you sure?')" href="/delete/{{ $article->id }}"><button class="btn btn-danger">Hapus</button></a>
                         </td>
                     </tr>
                 @endforeach

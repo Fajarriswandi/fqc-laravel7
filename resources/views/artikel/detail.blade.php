@@ -11,8 +11,8 @@
         <input name="action" onclick="history.back()" type="submit" value="Back"/>
         <img src={{url('/images/', $article->image) }} class="card-img-top img-fluid" alt="gambar">
         <div class="p-4">
-            <h2>Title-{{ $article->judul }}</h2>
-
+            <h2>{{ $article->judul }}</h2>
+          
             @php
                 $showArtikel = $article->deskripsi;
                 echo html_entity_decode($showArtikel);

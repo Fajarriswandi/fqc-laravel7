@@ -6,6 +6,8 @@ Auth::routes();
 
 Route::get('/', 'FrontEndController@index');
 Route::get('/bootstrap', 'FrontEndController@bootstrap');
+Route::get('/blog', 'FrontEndController@blog');
+Route::get('/blog/{slug}', 'FrontEndController@blogdetail');
 
 //  ARTIKEL ROUTES
 Route::get('/add', 'ArtikelController@add');
