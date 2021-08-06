@@ -1,0 +1,73 @@
+.contentLogin{
+    .logoPageClean{
+        position: absolute;
+        top: 17px;
+        left: 9.5em;
+        display: table;
+        z-index: 100;
+        @media(max-width:$tablet){
+            top: 17px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    .backgroundAnimation{
+        position: fixed;
+        top: 0;
+        left: 0;
+        @extend .rotate-scale-down;
+        z-index: 1;
+        width: 50%;
+    }
+    @media(max-width:$tablet){
+        height: 100vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    @media(max-width:$mobile){
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    &::after{
+        display: table;
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(15px);
+        z-index: 5;
+    }
+    .container{
+        z-index: 100;
+        @media(max-width:$tablet){
+            margin-left: 40px;
+            // background: red !important;
+        }
+        .title{
+            font-size: 3.5vw;
+            @media(max-width:$tablet){
+                font-size: 4.5vw;
+                text-align: center;
+                margin-top: 30px;
+            }
+            @media(max-width:$mobile){
+                font-size: 30px;
+            }
+        }
+        .description{
+            font-size: 20px;
+            @media(max-width:$tablet){
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        }
+    }
+}

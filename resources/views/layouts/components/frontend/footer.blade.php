@@ -85,7 +85,7 @@
 
     // Toggle menu
     $(document).ready(function() {
-        $('.btnExpandMenu').on('click', function() {
+        $('.btnExpandMenu, .openMenu').on('click', function() {
             $('.menuOnclick').toggleClass('open');
         });
     });

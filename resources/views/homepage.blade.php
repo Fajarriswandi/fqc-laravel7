@@ -16,6 +16,9 @@
                             <p>Take lessons to help teachers with an income, given to them through your fee. To help
                                 yourself, by gaining beneficial knowledge. To help others with your knowledge. So much you
                                 can do while being at home.</p>
+                                <p>
+                                    <a href="{{ URL::to('/') }}/register" class="btn btn-primary btn-lg">FREE TRIAL</a>
+                                </p>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-12 p-0 headerImageSlider mb-5">

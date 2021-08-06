@@ -11,12 +11,10 @@
         <form method="post" action="/add_process" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label>Judul Artikel</label>
                 <input type="text" class="form-control" name="judul" placeholder="Judul artikel">
             </div>
             <div class="form-group">
-                <label>Isi Artikel</label>
-                <textarea id="textEditor" class="form-control textEditor" name="deskripsi" rows="15"></textarea>
+                <textarea id="deskripsi" class="textEditor" name="deskripsi" rows="15"></textarea>
             </div>
             <div class="form-group">
                 <label>Masukan Gambar</label>

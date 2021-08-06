@@ -1024,3 +1024,25 @@ footer {
     }
 }
 // Coming Soon
+
+//navLinkHeader
+.navLinkHeader{
+    > li{
+        margin-left: 5px;
+        > a{
+            color: #b38218;
+            display: block;
+            border-radius: 100px;
+            transition: 0.2s ease;
+            &:hover{
+                background: white;
+            }
+            &.active{
+                background: #FFD98E;
+                position: relative;
+                color: #b38218;
+            }
+            
+        }
+    }
+}

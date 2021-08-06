@@ -49,7 +49,7 @@
                         <td>{{ $article->image }}</td>
                         <td>{{ $article->created_at }}</td>
                         <td>{{ $article->updated_at }}</td>
-                        <td><a href="/artikel/{{ $article->slug }}" class="btn btn-primary">Show</a>
+                        <td><a href="/blog/{{ $article->slug }}" class="btn btn-primary">Show</a>
                         </td>
                         <td>
                             <a href="/edit/{{ $article->id }}"><button class="btn btn-success">Edit</button></a>

@@ -12,15 +12,12 @@
                 @csrf
                 <input type="hidden" value="{{ $article->id }}" name="id">
                 <div class="form-group">
-                    <label>Judul Artikel</label>
                     <input type="text" class="form-control" value="{{ $article->judul }}" name="judul"
                         placeholder="Judul artikel">
     
                 </div>
                 <div class="form-group">
-                    <label>Isi Artikel</label>
-                    <textarea id="textEditor" class="form-control" name="deskripsi" rows="15">{{ $article->deskripsi }}
-                            </textarea>
+                    <textarea id="deskripsi" class="form-control" name="deskripsi" rows="15">{{ $article->deskripsi }}</textarea>
                 </div>
     
                 <img src={{ url('images/', $article->image) }} class="img-fluid" width="50" height="40" />
@@ -35,7 +32,7 @@
 
     <div class="col-md-2 col-sm-12 pt-3">
         <div class="card p-4">
-            <input type="submit" class="form-control btn btn-primary" value="Edit">
+            <input type="submit" class="form-control btn btn-primary" value="Update">
         </div>
     </div>
 @endsection

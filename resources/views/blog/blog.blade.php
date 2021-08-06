@@ -9,8 +9,8 @@
             <div>
                 <h1>Blog</h1>
                 <ul class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="{{ URL::to('/') }}/">Home</a></li>
+                    <li><a href="{{ URL::to('/') }}/blog">Blog</a></li>
                 </ul>
             </div>
         </header>
@@ -21,7 +21,7 @@
                 <div class="col-md-3 col-sm-12 mb-4">
                     <a href="blog/{{ $article->slug }}">
                         <div class="card">
-                            <div class="image"><img class="card-img-top" src="images/{{ $article->image }}" alt="Card image cap"></div>
+                            <div class="image"><img class="card-img-top" src="{{ URL::to('/') }}/images/{{ $article->image }}" alt="Card image cap"></div>
                             <div class="card-body">
                                 <h5 class="card-title">{{ $article->judul }}</h5>
                                 <span class="badge badge-pill pl-0"><i class="bi bi-calendar4-week"></i> {{ date('d M Y', strtotime($article->created_at))  }}</span>
