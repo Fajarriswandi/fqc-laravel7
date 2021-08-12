@@ -18597,6 +18597,21 @@ footer .copyRight {
   color: #b38218;
 }
 
+#google_translate_element {
+  margin-top: 5px;
+  color: #535353;
+}
+
+#google_translate_element a:hover {
+  text-decoration: none;
+}
+
+#google_translate_element .goog-te-gadget-simple {
+  border: 1px solid #ececec;
+  border-radius: 5px;
+  padding: 4px 8px;
+}
+
 #blog header {
   background: linear-gradient(to bottom, #f2f2f2 0%, rgba(242, 242, 242, 0) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#f2f2f2", endColorstr="#00f2f2f2",GradientType=0 );

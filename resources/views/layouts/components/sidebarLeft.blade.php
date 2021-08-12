@@ -15,9 +15,11 @@
                             class="bi bi-file-earmark-richtext"></i> Articles</a>
                 </li>
                 <li>
-
-
-
+                    <a href="{{ url('users') }}"
+                        class="{{ Request::is('users') ? 'list-group-item active' : 'list-group-item' }}"><i
+                            class="bi bi-people"></i> Users</a>
+                </li>
+                <li>
                     <a href="{{ url('logout') }}"
                         class="{{ Request::is('logout') ? 'list-group-item active' : 'list-group-item' }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

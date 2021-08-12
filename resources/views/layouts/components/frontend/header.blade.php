@@ -2,18 +2,18 @@
 <div class="mainNavigation fixed-top">
     <div class="containerMenu">
         <div class="row">
-            <div class="col-6">
+            <div class="col-md-2 bg-primary1">
                 <a href="{{ URL::to('/') }}/" class="logo"><img src="{{ URL::to('/') }}/themeImages/logo.svg"
                         alt="Fajr Quran Centre"></a>
             </div>
-            <div class="col-md-6 col-sm-12 d-md-none d-lg-block d-none">
-                <div class="row justify-content-end mt-4">
-                    <ul class="nav justify-content-end navLinkHeader">
+            <div class="col-md-7 col-sm-12 d-md-none d-lg-block d-none bg-secondary1">
+                <div class="row justify-content-center mt-4">
+                    <ul class="nav justify-content-center navLinkHeader">
                         <li class="nav-item"><a class="{{ Request::is('/') ? 'nav-link active' : 'nav-link' }}" href="{{ URL::to('/') }}/">Home</a></li>
                         <li class="nav-item"><a class="{{ Request::is('blog') ? 'nav-link active' : 'nav-link' }}" href="{{ URL::to('/') }}/blog">Blog</a></li>
                         <li class="nav-item openMenu"><a class="nav-link" href="#">Our Programs</a></li>
                         <li class="nav-item"><a class="nav-link" href="#" onclick="window.open('https://wa.me/6287755088340?text=السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ')">Contact us</a></li>
-                        <li class="nav-item d-flex">
+                        {{-- <li class="nav-item d-flex">
                             @guest
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             @if (Route::has('register'))
@@ -35,33 +35,16 @@
                                 </div>
                             </li>
                         @endguest
-                        </li>
+                        </li> --}}
                     </ul>
-                    {{-- <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            @if (Route::has('register'))
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul> --}}
+                    
                 </div>
+            </div>
+
+            <div class="col-md-3 col-sm-12">
+                <ul class="nav justify-content-end bg-primary1 mt-4">
+                    <li><div id="google_translate_element"></div></li>
+                </ul>
             </div>
 
             <!--Only show on table & mobile-->

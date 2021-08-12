@@ -1046,3 +1046,20 @@ footer {
         }
     }
 }
+
+// Google Translate Page
+#google_translate_element{
+    margin-top: 5px;
+    color: $text;
+    a{
+        &:hover{
+            text-decoration: none;
+        }
+    }
+    .goog-te-gadget-simple{
+        // background: transparent;
+        border: 1px solid $border-light;
+        border-radius: 5px;
+        padding: 4px 8px;
+    }
+}

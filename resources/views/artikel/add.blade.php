@@ -11,14 +11,14 @@
         <form method="post" action="/add_process" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <input type="text" class="form-control" name="judul" placeholder="Judul artikel">
+                <input type="text" class="form-control" name="judul" placeholder="Judul artikel" required>
             </div>
             <div class="form-group">
                 <textarea id="deskripsi" class="textEditor" name="deskripsi" rows="15"></textarea>
             </div>
             <div class="form-group">
                 <label>Masukan Gambar</label>
-                <input type="file" name="image" class="form-control">
+                <input type="file" name="image" class="form-control" required>
             </div>
     </div>
 

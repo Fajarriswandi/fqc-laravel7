@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-Auth::routes();
+// Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/', 'FrontEndController@index');
 Route::get('/bootstrap', 'FrontEndController@bootstrap');
@@ -23,5 +24,9 @@ Route::get('/artikel', 'ArtikelController@index'); // Rout untuk manage artikel
 // Route::get('/admin', 'AdminDashboardController@index');
 
 Route::get('/admin', 'AdminController@index');
-Route::get('/user', 'UserController@index');
 
+// Users
+Route::get('/users', 'UserController@index');
+Route::get('/profile', 'UserController@profile');
+
+Route::get('/form-register', 'formRegisterController@index');
